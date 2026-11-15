@@ -14,6 +14,7 @@ services.AddDbContext<DbContextSchool>(optionsAction: options => options
         .GetConnectionString(name: "DBConnection")));
 
 services.AddScoped<HelperGender>();
+services.AddScoped<HelperStudent>();
 
 var app = builder.Build();
 
