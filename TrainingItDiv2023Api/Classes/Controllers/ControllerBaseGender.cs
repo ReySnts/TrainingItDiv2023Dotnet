@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TrainingItDiv2023Api.Classes.Helpers;
-using TrainingItDiv2023Api.Classes.Outputs;
 
 namespace TrainingItDiv2023Api.Classes.Controllers
 {
@@ -12,13 +11,6 @@ namespace TrainingItDiv2023Api.Classes.Controllers
 
         [HttpGet, Produces(contentType: "application/json")]
 
-        public IActionResult Get()
-        {
-            var value = new OutputGender();
-
-            value.Set(listPayloads: helper.GetAll());
-
-            return new OkObjectResult(value);
-        }
+        public IActionResult Get() => new OkObjectResult(value: helper.GetAll());
     }
 }
