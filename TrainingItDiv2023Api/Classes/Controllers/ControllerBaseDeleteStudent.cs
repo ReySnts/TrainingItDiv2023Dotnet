@@ -5,9 +5,9 @@ namespace TrainingItDiv2023Api.Classes.Controllers
 {
     [ApiController, Route("api/[controller]")]
 
-    public sealed class ControllerBaseStudent(HelperStudent helper) : ControllerBase
+    public sealed class ControllerBaseDeleteStudent(HelperDeleteStudent helper) : ControllerBase
     {
-        private readonly HelperStudent helper = helper;
+        private readonly HelperDeleteStudent helper = helper;
 
         [HttpDelete(template: "{id}"), Produces(contentType: "application/json")]
 

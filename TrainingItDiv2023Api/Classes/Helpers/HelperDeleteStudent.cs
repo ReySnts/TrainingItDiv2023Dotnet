@@ -3,7 +3,7 @@ using TrainingItDiv2023Api.Interfaces;
 
 namespace TrainingItDiv2023Api.Classes.Helpers
 {
-    public sealed class HelperStudent(DbContextSchool dbSchool)
+    public sealed class HelperDeleteStudent(DbContextSchool dbSchool)
     {
         private readonly DbContextSchool dbSchool = dbSchool;
 
@@ -26,7 +26,7 @@ namespace TrainingItDiv2023Api.Classes.Helpers
 
                 return status;
             }
-            
+
             catch(Exception exception)
             {
                 throw new Exception(message: exception.Message);
