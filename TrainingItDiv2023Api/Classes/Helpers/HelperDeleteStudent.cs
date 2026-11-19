@@ -9,28 +9,20 @@ namespace TrainingItDiv2023Api.Classes.Helpers
 
         public IStatus Delete(int id)
         {
-            try
+            var table = dbSchool.Student;
+            var entity = table.FirstOrDefault(predicate: student => student.Id == id);
+            var status = new Status();
+
+            if (entity == null) status.Set(code: 404, message: "No student found!");
+
+            else
             {
-                var table = dbSchool.Student;
-                var entity = table.FirstOrDefault(predicate: student => student.Id == id);
-                var status = new Status();
-
-                if (entity == null) status.Set(code: 404, message: "No student found!");
-
-                else
-                {
-                    table.Remove(entity);
-                    dbSchool.SaveChanges();
-                    status.Set(code: 200, message: "Student successfully deleted!");
-                }
-
-                return status;
+                table.Remove(entity);
+                dbSchool.SaveChanges();
+                status.Set(code: 200, message: "Student successfully deleted!");
             }
 
-            catch(Exception exception)
-            {
-                throw new Exception(message: exception.Message);
-            }
+            return status;
         }
     }
 }

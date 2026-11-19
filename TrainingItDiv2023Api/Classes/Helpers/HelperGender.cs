@@ -9,21 +9,13 @@ namespace TrainingItDiv2023Api.Classes.Helpers
 
         public List<IGender> GetAll()
         {
-            try
-            {
-                var value = new List<IGender>();
+            var value = new List<IGender>();
 
-                dbSchool.Gender
-                    .ToList()
-                    .ForEach(action: gender => value.Add(item: new Gender(id: gender.Id, description: gender.Description)));
+            dbSchool.Gender
+                .ToList()
+                .ForEach(action: gender => value.Add(item: new Gender(id: gender.Id, description: gender.Description)));
 
-                return value;
-            }
-
-            catch(Exception exception)
-            {
-                throw new Exception(message: exception.Message);
-            }
+            return value;
         }
     }
 }
